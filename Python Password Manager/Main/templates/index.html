@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Manager - Secure Login</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <!-- Login Box -->
+  <div class="glass-box" id="loginContainer">
+    <h1>🔐 Login</h1>
+    <input type="text" id="loginUsername" placeholder="Username" autocomplete="off" />
+    <input type="password" id="loginPassword" placeholder="Password" autocomplete="off" />
+    <input type="password" id="loginMasterPassword" placeholder="Master Password" autocomplete="off" />
+    <button id="loginBtn">Login</button>
+    <div id="loginMessage" class="message" style="margin-top:10px;"></div>
+    <div id="registerPrompt" style="margin-top: 15px; cursor:pointer; color: var(--highlight); text-decoration:underline;">
+      Don’t have an account? Register here
+    </div>
+  </div>
+
+  <!-- Register Box (Initially hidden) -->
+  <div class="glass-box" id="registerContainer" style="display:none;">
+    <h1>🆕 Register Account</h1>
+    <input type="text" id="registerUsername" placeholder="Username" autocomplete="off" />
+    <input type="password" id="registerPassword" placeholder="Password" autocomplete="off" />
+    <button id="suggestPwdBtn">Suggest Strong Password</button>
+    <input type="text" id="suggestedPassword" placeholder="Suggested Password" readonly style="margin-bottom:5px;" />
+    <input type="password" id="registerMasterPassword" placeholder="Master Password" autocomplete="off" />
+    <button id="registerBtn">Register</button>
+    <div id="registerMessage" class="message" style="margin-top:10px;">
+      <span id="tickIcon" style="display:none; font-size:1.5rem; margin-right: 6px;">✔️</span>
+      <span id="registerMsgText"></span>
+    </div>
+    <div id="goToLogin" style="margin-top: 15px; cursor:pointer; color: var(--highlight); text-decoration:underline;">
+      Already have an account? Login here
+    </div>
+  </div>
+
+  <!-- Password Manager Interface -->
+  <div class="password-manager" id="manager" style="display:none;">
+    <div class="welcome" id="welcomeMsg"></div>
+    <input type="text" id="site" placeholder="Website" />
+    <input type="text" id="uname" placeholder="Username / Email" />
+    <input type="password" id="pass" placeholder="Password" />
+    <button id="addPwdBtn">💾 Save Password</button>
+    <div id="passwordList" style="margin-top:15px;"></div>
+    <button class="logout" id="logoutBtn">🚪 Logout</button>
+  </div>
+
+  <script src="/static/script.js"></script>
+  <script>
+    // Dynamic theme rotation for maximum readability, every 5s
+    const themes = [
+      {
+        '--primary-bg': '#101720', '--accent-bg': '#232b39',
+        '--glass-bg': 'rgba(255,255,255,0.12)', '--input-bg': '#fff',
+        '--input-text': '#232526', '--input-border': '#00ffe0',
+        '--btn-bg': 'linear-gradient(90deg, #37e2ff, #4787ff 80%)',
+        '--btn-hover': 'linear-gradient(90deg, #4787ff 40%, #37e2ff 90%)',
+        '--btn-text': '#101720', '--btn-border': '#37e2ff',
+        '--highlight': '#00ffe0', '--danger': '#fa5252'
+      },
+      {
+        '--primary-bg': '#22203a', '--accent-bg': '#3d3859',
+        '--glass-bg': 'rgba(255,255,255,0.06)', '--input-bg': '#fffbe6',
+        '--input-text': '#3c2546', '--input-border': '#8d46ef',
+        '--btn-bg': 'linear-gradient(90deg, #ffe44c, #a442e3 80%)',
+        '--btn-hover': 'linear-gradient(90deg, #a442e3 60%, #ffe44c 100%)',
+        '--btn-text': '#432b65', '--btn-border': '#ffe44c',
+        '--highlight': '#a442e3', '--danger': '#fa5252'
+      },
+      {
+        '--primary-bg': '#142923', '--accent-bg': '#183e36',
+        '--glass-bg': 'rgba(255,255,255,0.15)', '--input-bg': '#f1fff9',
+        '--input-text': '#265245', '--input-border': '#20f7ae',
+        '--btn-bg': 'linear-gradient(90deg, #20f7ae, #1976d2 80%)',
+        '--btn-hover': 'linear-gradient(90deg, #1976d2 60%, #20f7ae 100%)',
+        '--btn-text': '#195447', '--btn-border': '#20f7ae',
+        '--highlight': '#1976d2', '--danger': '#e74c3c'
+      },
+      {
+        '--primary-bg': '#312227', '--accent-bg': '#4e333b',
+        '--glass-bg': 'rgba(255,255,255,0.10)', '--input-bg': '#fff0ec',
+        '--input-text': '#4f2f2f', '--input-border': '#ff9686',
+        '--btn-bg': 'linear-gradient(90deg, #ffa68d, #ff7eb3 80%)',
+        '--btn-hover': 'linear-gradient(90deg, #ff7eb3 40%, #ffa68d 100%)',
+        '--btn-text': '#4e333b', '--btn-border': '#ffa68d',
+        '--highlight': '#ff7eb3', '--danger': '#e94560'
+      }
+    ];
+    let currentTheme = 0;
+    setInterval(() => {
+      currentTheme = (currentTheme + 1) % themes.length;
+      for (const key in themes[currentTheme]) {
+        document.documentElement.style.setProperty(key, themes[currentTheme][key]);
+      }
+    }, 5000);
+    // Apply initial theme
+    for (const key in themes[0]) {
+      document.documentElement.style.setProperty(key, themes[0][key]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+body {
+  background: linear-gradient(120deg, #232526, #0f2027 75%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0; padding: 0;
+}
+
+.glass-box {
+  background: rgba(25,28,36,0.46);
+  border-radius: 22px;
+  position: relative;
+  max-width: 370px;
+  margin: 54px auto 0 auto;
+  padding: 38px 28px;
+  border: 2px solid #0fffc3;
+  box-shadow: 0 0 18px 2px #0fffc3, 0 0 48px 7px #13f1aa;
+  animation: electricBorder 2s infinite alternate;
+}
+
+@keyframes electricBorder {
+  0%   { box-shadow: 0 0 20px 0 #0fffc3,0 0 0 5px #232526; border-color: #0fffc3;}
+  55%  { box-shadow: 0 0 30px 10px #13f1aa,0 0 0 7px #0fffc3; border-color: #13f1aa;}
+  100% { box-shadow: 0 0 20px 0 #0fffc3,0 0 0 5px #232526; border-color: #0fffc3;}
+}
+
+input[type="text"], input[type="password"] {
+  background: linear-gradient(90deg, #ffffff 80%, #e0fcff 100%);
+  color: #262b2f;
+  border: 2px solid #0fffc3;
+  box-shadow: 0 0 10px 1px #0fffc3, 0 0 5px 0px #e0fcff;
+  font-size: 1.1rem;
+  font-weight: 540;
+  margin-bottom: 12px;
+  padding: 12px;
+  letter-spacing: 0.03em;
+  outline: none;
+  transition: box-shadow 0.2s, border 0.2s, background 0.22s;
+}
+
+input:focus {
+  background: #fff;
+  border: 2px solid #13f1aa;
+  box-shadow: 0 0 20px 2px #13f1aa;
+  color: #222;
+}
+
+input::placeholder {
+  color: #0fffc3;
+  opacity: 1;
+  text-shadow: 0 0 8px #13f1aa;
+  font-weight: 540;
+}
+
+/* Distinct, vivid color for each button */
+button {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  width: 100%;
+  padding: 13px;
+  outline: none;
+  margin-top: 6px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0fffc3 40%, #13f1aa 99%);
+  color: #1b2d38;
+  border: 2px solid #0fffc3;
+  box-shadow: 0 0 12px 2px #0fffc3;
+  transition: background 0.2s, color 0.19s, border 0.22s, box-shadow 0.21s;
+}
+
+button:active, button:focus {
+  background: linear-gradient(90deg, #13f1aa 10%, #0fffc3 89%);
+  color: #fff;
+  border-color: #13f1aa;
+  box-shadow: 0 0 18px 5px #13f1aa, 0 0 2px 2px #fff;
+}
+
+#registerBtn, #suggestPwdBtn {
+  background: linear-gradient(90deg, #ffb54c 30%, #ff7a18 99%);
+  color: #222;
+  border: 2px solid #ff7a18;
+  box-shadow: 0 0 12px 2px #ffb54c;
+}
+
+#registerBtn:active, #registerBtn:focus, #suggestPwdBtn:active, #suggestPwdBtn:focus {
+  background: linear-gradient(90deg, #ff7a18 10%, #ffb54c 97%);
+  color: #fff;
+  border-color: #ffb54c;
+  box-shadow: 0 0 20px 6px #ffb54c, 0 0 2px 2px #fff;
+}
+
+#loginBtn, #addPwdBtn {
+  background: linear-gradient(90deg, #11d4ff 40%, #0fffc3 98%);
+  color: #283747;
+  border: 2px solid #11d4ff;
+  box-shadow: 0 0 8px 2px #11d4ff, 0 0 0 3px #0fffc3;
+}
+
+#loginBtn:hover, #addPwdBtn:hover {
+  background: linear-gradient(90deg, #0fffc3 30%, #11d4ff 80%);
+  color: #fff;
+}
+
+.logout {
+  background: linear-gradient(90deg, #ff7979, #fa5252 63%);
+  color: #fff;
+  border: 2px solid #ff7979;
+  box-shadow: 0 0 8px 1px #ff7979;
+  font-weight: 600;
+}
+.logout:hover {
+  background: linear-gradient(90deg,#fa5252, #ff7979 90%);
+  color: #fff;
+}
+
+.message {
+  text-align: center;
+  color: #ff7979;
+}
+
+/* Glass look for logged-in manager area */
+.password-manager {
+  background: rgba(25,28,36,0.34);
+  border-radius: 20px;
+  margin: 40px auto 0 auto;
+  max-width: 410px;
+  box-shadow: 0 0 24px 8px #13f1aa, 0 0 0 7px #0fffc3;
+  border: 2px solid #0fffc3;
+  padding: 32px 26px;
+  animation: electricBorder 2s infinite alternate;
+}
+
+#welcomeMsg {
+  color: #0fffc3;
+  font-size: 1.22rem;
+  text-align: center;
+  margin-bottom: 21px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #0fffc3;
+}
